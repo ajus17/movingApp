@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Costumer List
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,16 @@
 <ion-content [fullscreen]="true" padding>
   <ion-searchbar animated style="color: #062A40; size: 30px;"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let costumer of costumers" (click)="itemSelected(costumer)">
-      <ion-label style="color: #062A40;">{{ costumer.name }}</ion-label>
-    </ion-item>
+    <ion-item-sliding *ngFor="let costumer of costumers">
+      <ion-item lines="inset" button [routerLink]="['/details',costumer.id]">
+        <ion-label style="color:#062A40;">{{ costumer.name }}</ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="onRemove(item)" color="secondary">
+          <ion-icon name="checkmark" slot="end"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
   
   <ion-header collapse="condense">
@@ -20,9 +27,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- fab placed to the (vertical) center and end -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button routerLink="/create">
+    <ion-fab-button routerLink="/details" routerDirection="forward">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

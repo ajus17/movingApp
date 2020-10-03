@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Costumer Details
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+      <ion-item *ngIf="costumer">
+        <ion-input required type="text" placeholder="Costumer name" [(ngModel)] = "costumer.name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="costumer">
+        <ion-input required type="email" placeholder="Email" [(ngModel)] = "costumer.email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="costumer">
+        <ion-input required type="number" placeholder="Phone number" [(ngModel)] = "costumer.phone"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="costumer">
+        <ion-input required type="string" placeholder="Moving from" [(ngModel)] = "costumer.movingFrom"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="costumer">
+        <ion-input required type="date" placeholder="Moving Date" [(ngModel)] = "costumer.movingDate"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="costumer">
+        <ion-input required type="text" placeholder="Moving to" [(ngModel)] = "costumer.movingTo"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="costumer">
+        <ion-input required type="date" placeholder="FADD" [(ngModel)] = "costumer.FADD"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="costumer">
+        <ion-input required type="text" placeholder="Comments" [(ngModel)] = "costumer.comments"></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" (click)="saveCostumer()">Save Costumer</ion-button>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" routerLink="/" routerDirection="forward">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
